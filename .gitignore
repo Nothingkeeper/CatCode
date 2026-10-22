@@ -1,0 +1,36 @@
+# --- Secrets & local config (never commit) ---
+config.yaml
+config.local.yaml
+.catcode/
+.claude/
+CLAUDE.md
+.env
+.env.*
+
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# --- IDE / OS ---
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# --- Runtime logs ---
+*.log
+.playwright-mcp/
+
+# Playwright snapshot leaks
+example-com-snapshot.md
+example-*.md

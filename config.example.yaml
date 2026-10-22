@@ -1,0 +1,51 @@
+# ============================================================================
+# CatCode 示例配置 / Example configuration
+#
+# 使用方法 / Usage:
+#   1. 复制本文件到 .catcode/config.yaml（项目目录或用户主目录均可）
+#      Copy this file to .catcode/config.yaml (project dir or home dir).
+#   2. 按需取消注释并修改 provider。
+#   3. 密钥不要写进仓库：留空 api_key，改用环境变量
+#      ANTHROPIC_API_KEY / OPENAI_API_KEY；也可以直接把 key 填在 api_key。
+#      Do NOT commit real keys. Leave api_key empty and export the env var,
+#      or paste the key locally only.
+# ============================================================================
+
+providers:
+  # --- Anthropic 官方 / Anthropic official ---
+  - name: anthropic-official
+    protocol: anthropic
+    base_url: https://api.anthropic.com
+    api_key: ""            # 留空则读取环境变量 ANTHROPIC_API_KEY
+    model: claude-sonnet-4-20250514
+    thinking: true
+
+  # --- OpenAI 官方 / OpenAI official ---
+  # - name: openai-official
+  #   protocol: openai
+  #   base_url: https://api.openai.com/v1
+  #   api_key: ""          # 留空则读取环境变量 OPENAI_API_KEY
+  #   model: gpt-4o
+
+  # --- 任意 OpenAI 兼容接口 / Any OpenAI-compatible endpoint ---
+  # DeepSeek / Kimi / GLM / Qwen / MiniMax ...
+  # - name: my-compat
+  #   protocol: openai-compat
+  #   base_url: https://your-endpoint/v1
+  #   api_key: ""
+  #   model: your-model-name
+
+# 权限模式 / Permission mode: default | acceptEdits | plan | bypassPermissions
+permission_mode: default
+
+# 可选：MCP servers（stdio 命令或 HTTP URL，二选一）
+# Optional MCP servers (stdio command OR http url, pick one per server).
+# mcp_servers:
+#   - name: context7
+#     command: npx
+#     args: ["-y", "@upstash/context7-mcp"]
+#   # - name: my-http-mcp
+#   #   url: https://example.com/mcp
+#   #   transport: http      # http (default) | sse
+#   #   headers:
+#   #     Authorization: "Bearer ${MY_TOKEN}"
